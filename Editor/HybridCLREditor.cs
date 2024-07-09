@@ -13,7 +13,7 @@ namespace ET
         {
             BuildTarget target = EditorUserBuildSettings.activeBuildTarget;
             string fromDir = Path.Combine(HybridCLRSettings.Instance.strippedAOTDllOutputRootDir, target.ToString());
-            string toDir = "Packages/cn.etetet.loader/Bundles/AotDlls";
+            const string toDir = "Packages/cn.etetet.loader/Bundles/AotDlls";
             if (Directory.Exists(toDir))
             {
                 Directory.Delete(toDir, true);
@@ -27,6 +27,21 @@ namespace ET
             UnityEngine.Debug.Log($"CopyAotDll Finish!");
             
             AssetDatabase.Refresh();
+        }
+        
+        [MenuItem("ET/HybridCLR/Init")]
+        public static void Init()
+        {
+            const string fromFile = "Packages/cn.etetet.hybridclr/HybridCLR/AssemblyReferenceToLoader.asmref";
+            
+            const string toDir = "Assets/HybridCLR";
+            if (Directory.Exists(toDir))
+            {
+                Directory.Delete(toDir, true);
+            }
+            Directory.CreateDirectory(toDir);
+            
+            File.Copy(fromFile, Path.Combine(toDir, "AssemblyReferenceToLoader.asmref"));
         }
     }
 }
