@@ -1,7 +1,4 @@
 {
 "Id": 30,
-"Name": "HybridCLR",
-"GitDependencies": {
-  "com.code-philosophy.hybridclr": "https://gitee.com/focus-creative-games/hybridclr_unity.git"
-  }
+"Name": "HybridCLR"
 }
