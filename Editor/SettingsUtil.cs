@@ -22,7 +22,7 @@ namespace HybridCLR.Editor
             }
         }
 
-        public static string PackageName { get; } = "com.code-philosophy.hybridclr";
+        public static string PackageName { get; } = "cn.etetet.hybridclr";
 
         public static string HybridCLRDataPathInPackage => $"Packages/{PackageName}/Data~";
 
