@@ -1,5 +1,76 @@
 # 发布日志
 
+## 6.9.0
+
+发布日期 2024.9.30
+
+### Runtime
+
+- [fix] 修复抛出的异常没有调用il2cpp::vm::Exception::PrepareExceptionForThrow导致StraceTrace为空的bug
+- [merge] 合并2021.3.42f1-2021.3.44f1版本改动，修复2021.3.44版本il2cpp改动引入的编译错误
+- [merge] 合并2022.3.41f1-2022.3.48f1版本改动，修复2022.3.48版本il2cpp改动引入的编译错误
+- [merge] 合并6000.0.19f1-6000.0.21f1代码，修复6000.0.20版本il2cpp改动引入的编译错误
+- [merge] 合并Tuanjie 1.1.0-1.2.6版本改动
+
+## 6.8.0
+
+发布日期 2024.9.14.
+
+### Runtime
+
+- [fix] 修复异常的堆栈中未包含行号的bug
+- [fix] 修复Il2CppGenericContextCompare比较时简单比较class_inst和method_inst指针相等的bug，实际上并非所有GenericInst（如s_Il2CppMetadataRegistration->genericInsts）都来自GenericInstPool，因此相同的GenericInst并非指针相同
+- [merge] 合并6000.0.10-6000.0.19版本il2cpp代码改动
+
+## 6.7.1
+
+发布日期 2024.8.26.
+
+### Runtime
+
+- [fix] 修复Unity 2019发布iOS平台时有编译错误的bug
+
+## 6.7.0
+
+发布日期 2024.8.26.
+
+### Runtime
+
+- [opt] 在Release编译模式下不再开启PROFILER，此优化减少了10-15%函数调用的开销，整体大约提升了2-4%的性能。
+- [opt] 发布WebGL目标时在Release编译模式下不再维护StackTrace，整体大约提升了1-2%的性能
+- [fix] 修复Transform Enum::GetHashCode时，没有将栈上的变量类型由uintptr_t改为int32_t，导致后续参与数值计算时参数类型被扩展为64位而计算错误的bug
+- [fix] 修复解释器函数内大量调用delegate时触发stackoverflow的bug
+
+### Editor
+
+- [new] HybridCLRSettings新增enableProfilerInReleaseBuild和enableStraceTraceInWebGLReleaseBuild两个选项
+- [change] 修复从WebGL平台切换到其他平台时PatchScriptingAssembliesJsonHook出现断言失败的问题（无实质影响）
+
+## 6.6.0
+
+发布日期 2024.8.12.
+
+### Runtime
+
+- [fix] 修复CustomAttribute的构造或者namedArg包含typeof(T[])参数时崩溃的bug
+- [fix] 修复 T[index].CallMethod() 当CallMethod为泛型类型T的接口函数，并且array的element为T的子类时抛出ArrayTypeMismatchException的bug
+- [fix] 修复MethodBase.GetCurrentMethod未返回正确结果的bug。新增instinct指令MethodBaseGetCurrentMethod
+- [fix] 修复在WebGL之类的平台加载pdb后仍然无法显示堆栈代码行数的bug
+- [fix] 修复调用子解释器函数后返回，再打印日志时，由于frame->ip未重新设置为&ip，导致后续打印的代码行数永远为调用子函数的代码行数的bug
+- [fix] 修复调用子解释器函数时，由于frame->ip指向下一条指令，导致父函数的代码行数显示为下一条语句的行数的bug
+- [merge] 合并2021.3.42f1及2022.3.41f1的il2cpp的代码，修复2021.3.42f1及2022.3.40f1新增il2cpp_codegen_memcpy_with_write_barrier函数引发的编译错误
+
+## 6.5.0
+
+发布日期 2024.8.5.
+
+### Runtime
+
+- [new] 2019-2020版本热更新函数堆栈也能正常显示代码文件及行号
+- [merge] 合并Unity 6000.0.1-6000.0.10的il2cpp改动
+
+## 6.4.0
+
 发布日期 2024.7.25.
 
 ### Runtime
@@ -13,6 +84,8 @@
 
 - [fix][严重] 修复生成MethodBridge过程中计算等价类时未考虑到ClassLayout、Layout和FieldOffset因素的bug
 - [fix] 修复Library/PlayerDataCache目录不存在时，PatchScriptingAssembliesJsonHook运行异常的bug
+
+## 6.3.0
 
 发布日期 2024.7.15.
 
