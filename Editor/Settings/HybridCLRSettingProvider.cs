@@ -86,7 +86,7 @@ namespace HybridCLR.Editor.Settings
                 var target = HybridCLRSettings.Instance;
                 var receiver = ScriptableObject.CreateInstance<SettingsPresetReceiver>();
                 receiver.Init(target, this);
-                PresetSelector.ShowSelector(target, null, true, receiver);
+                //PresetSelector.ShowSelector(target, null, true, receiver);
             }
             #endregion
             #region 绘制 Reset
