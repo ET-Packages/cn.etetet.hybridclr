@@ -1,11 +1,11 @@
 {
   "name": "cn.etetet.hybridclr",
-  "version": "7.8.1",
+  "version": "8.9.0",
   "displayName": "ET.HybridCLR",
   "description": "HybridCLR is a fully featured, zero-cost, high-performance, low-memory solution for Unity's all-platform native c# hotupdate.",
   "category": "Runtime",
-  "documentationUrl": "https://hybridclr.doc.code-philosophy.com/#/",
-  "changelogUrl": "https://hybridclr.doc.code-philosophy.com/#/other/changelog",
+  "documentationUrl": "https://www.hybridclr.cn/#/",
+  "changelogUrl": "https://www.hybridclr.cn/#/other/changelog",
   "licensesUrl": "https://github.com/focus-creative-games/hybridclr_unity/blob/main/LICENSE",
   "keywords": [
     "HybridCLR",
@@ -21,5 +21,11 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@ET-Packages"
+  },
+  "_fingerprint": "c50f77040d6dc166a69bbb1c1c795210564c47bf",
+  "repository": {
+    "url": "https://gitee.com/XiaoBoJunQaQ/ET9.git",
+    "type": "git",
+    "revision": "9bcbf5d184f5c114123409cfee3033fbcb8c4123"
   }
 }
